@@ -21,6 +21,10 @@ class Librairie
     #[ORM\OneToMany(mappedBy: 'librairie', targetEntity: Livre::class, orphanRemoval: true, cascade: ["persist"])]
     private Collection $livre;
 
+    #[ORM\ManyToOne(inversedBy: 'Librairie')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Member $member = null;
+
     public function __construct()
     {
         $this->livre = new ArrayCollection();
@@ -69,6 +73,25 @@ class Librairie
                 $livre->setLibrairie(null);
             }
         }
+
+        return $this;
+    }
+    
+    public function __toString()
+    {
+        $s = '';
+        $s .= $this->getNom();
+        return $s;
+    }
+
+    public function getMember(): ?Member
+    {
+        return $this->member;
+    }
+
+    public function setMember(?Member $member): static
+    {
+        $this->member = $member;
 
         return $this;
     }
