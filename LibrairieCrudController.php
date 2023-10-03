@@ -23,7 +23,8 @@ class LibrairieCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('Nom'),
-            AssociationField::new('member')
+            AssociationField::new('member'),
+            AssociationField::new('livre')
         ];
     }
 }

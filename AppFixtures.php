@@ -25,8 +25,8 @@ class AppFixtures extends Fixture
     
     private static function getLibrairiesData()
     {
-        yield ["Librairie de Mael", self::MAEL_LIB_1, self::MAEL_MEM_1];
-        yield ["Librairie d'Aymeric", self::AYMERIC_LIB_1, self::AYMERIC_MEM_1];
+        yield ["Librairie du maître", self::MAEL_LIB_1, self::MAEL_MEM_1];
+        yield ["Librairie du débutant", self::AYMERIC_LIB_1, self::AYMERIC_MEM_1];
         
     }
     

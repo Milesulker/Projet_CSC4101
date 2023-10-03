@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Librairie;
 use App\Entity\Livre;
+use App\Entity\Member;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -28,8 +29,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Menu Principal', 'fa fa-home');
-        yield MenuItem::linkToCrud('Les Librairies', 'fas fa-list', Librairie::class);
         yield MenuItem::linktoCrud('Les Livres', 'fas fa-list', Livre::class);
+        yield MenuItem::linkToCrud('Les Librairies', 'fas fa-list', Librairie::class);
+        yield MenuItem::linkToCrud('Les Membres', 'fas fa-list', Member::class);
     }
 }

@@ -78,4 +78,11 @@ class Livre
 
         return $this;
     }
+    
+    public function __toString()
+    {
+        $s = '';
+        $s .= $this->getTitre();
+        return $s;
+    }
 }
