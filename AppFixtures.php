@@ -17,9 +17,9 @@ class AppFixtures extends Fixture
     
     private static function getLivresData()
     {
-        yield ["La Désolation d'Ignir", 5, "Moyen", self::MAEL_LIB_1];
-        yield ["Balade dans la forêt", 1, "Facile", self::AYMERIC_LIB_1];
-        yield ["Balade en enfer", 10, "Difficile", self::MAEL_LIB_1];
+        yield ["La Désolation d'Ignir", 5, "Aventure très sympathique mais de difficulté moyenne", self::MAEL_LIB_1];
+        yield ["Balade dans la forêt", 1, "Très bonne aventure pour débuter !", self::AYMERIC_LIB_1];
+        yield ["Balade en enfer", 10, "Vous allez mourir, beaucoup", self::MAEL_LIB_1];
         
     }
     
@@ -47,6 +47,7 @@ class AppFixtures extends Fixture
            $manager->flush();
            $this->addReference($memberReference, $member);
         }
+        
         foreach (self::getLibrairiesData() as [$title, $librairieReference, $memberReference]) {
             $member = $this->getReference($memberReference);
             $librairie = new Librairie();

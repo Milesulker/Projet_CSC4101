@@ -8,7 +8,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
@@ -26,7 +25,7 @@ class LivreCrudController extends AbstractCrudController
             TextField::new('Titre'),
             IntegerField::new('Niveau'),
             TextField::new('Description'),
-            TextField::new('Librairie')
+            AssociationField::new('librairie')
         ];
     }
 }
