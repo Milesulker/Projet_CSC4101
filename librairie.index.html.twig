@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue !{% endblock %}
+
+{% block body %}
+<h1>Librairie Index</h1>
+
+<ul>
+  {% for librairie in librairies %}
+  <li><td><a href="{{ path('librairie_show', {'id': librairie.id}) }}">{{ librairie.Nom }}</a></td></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
