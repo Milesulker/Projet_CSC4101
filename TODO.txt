@@ -1,5 +1,9 @@
 Création Classes [Objet] et [Inventaire] : CHECK
 Création Relation entre [Objet] et [Inventaire] : CHECK
 Mise en Place EasyAdmin : CHECK
-Mise en place de CrudControllers : CHECK
+Mise en Place de CrudControllers : CHECK
 Création Classe Member : CHECK
+Check-up EasyAdmin : CHECK
+Première page de Front-end : CHECK
+Gabarits : À FAIRE
+CSS : À FAIRE
