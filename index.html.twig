@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Livre Details :</h2>
+    {% dump livre %}
+        <ul>
+        <dl>
+     	<dt>Titre</dt><dd>{{ livre.getTitre() }}</dd>
+		<dt>Niveau</dt> <dd>{{ livre.getNiveau() }}</dd>
+        <dt>Description</dt> <dd>{{ livre.getDescription() }}</dd>
+		</dl>
+        </ul>
+        <a href="{{ path('librairie_show', {'id': livre.librairie.id}) }}">back to librairie</a>
+{% endblock %}

@@ -13,7 +13,7 @@ class LibrairieController extends AbstractController
     #[Route('/librairie', name: 'app_librairie')]
     public function index(ManagerRegistry $doctrine): Response
     {   
-        $htmlpage = '<!DOCTYPE html>
+        /*$htmlpage = '<!DOCTYPE html>
             <html>
             <body>
             <h1> Librairies créées </h1>
@@ -36,6 +36,12 @@ class LibrairieController extends AbstractController
             Response::HTTP_OK,
             array('content-type' => 'text/html')
             );
+        */
+        $entityManager= $doctrine->getManager();
+        $librairies = $entityManager->getRepository(Librairie::class)->findAll();
+        return $this->render('librairie/index.html.twig',
+            [ 'librairies' => $librairies ]
+            );
     }
     
     /**
@@ -52,12 +58,9 @@ class LibrairieController extends AbstractController
         if (!$Librairie) {
             throw $this->createNotFoundException('The Librairie does not exist');
         }
-        
-        $res = 'Ceci est la ' . $Librairie->getNom() . '<br>';
-        $res .= "Elle est d'ID " . $Librairie->getId() .'<br>';
-        $res .= '<p/><a href="' . $this->generateUrl('app_librairie') . '">Back</a>';
-        
-        return new Response('<html><body>'. $res . '</body></html>');
+        return $this->render('librairie/show.html.twig',
+        [ 'librairie' => $Librairie ]
+        );
     }
     
 }

@@ -55,6 +55,18 @@ class Librairie
         return $this->livre;
     }
 
+    public function showLivres(): string
+    {
+        $livres= $this->getLivre();
+        $s='';
+        foreach ($livres as $livre)
+        {
+            $titre=$livre->getTitre();
+            $s.= "- " . $titre . " ";
+        }
+        return $s;
+    }
+    
     public function addLivre(Livre $livre): static
     {
         if (!$this->livre->contains($livre)) {

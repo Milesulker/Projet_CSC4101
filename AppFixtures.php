@@ -11,13 +11,15 @@ use App\Entity\Member;
 class AppFixtures extends Fixture
 {
     private const MAEL_LIB_1 = "mael-inventaire-1";
+    private const JADE_LIB_1 = "jade-inventaire-1";
     private const AYMERIC_LIB_1 = "aymeric-inventaire-1";
     private const MAEL_MEM_1 = "mael-membre-1";
+    private const JADE_MEM_1 = "jade-membre-1";
     private const AYMERIC_MEM_1 = "aymeric-membre-1";
     
     private static function getLivresData()
     {
-        yield ["La Désolation d'Ignir", 5, "Aventure très sympathique mais de difficulté moyenne", self::MAEL_LIB_1];
+        yield ["La Désolation d'Ignir", 5, "Aventure très sympathique mais de difficulté moyenne", self::JADE_LIB_1];
         yield ["Balade dans la forêt", 1, "Très bonne aventure pour débuter !", self::AYMERIC_LIB_1];
         yield ["Balade en enfer", 10, "Vous allez mourir, beaucoup", self::MAEL_LIB_1];
         
@@ -26,6 +28,7 @@ class AppFixtures extends Fixture
     private static function getLibrairiesData()
     {
         yield ["Librairie du maître", self::MAEL_LIB_1, self::MAEL_MEM_1];
+        yield ["Fairy Tail <3", self::JADE_LIB_1, self::JADE_MEM_1];
         yield ["Librairie du débutant", self::AYMERIC_LIB_1, self::AYMERIC_MEM_1];
         
     }
@@ -33,8 +36,8 @@ class AppFixtures extends Fixture
     private static function getMembersData()
     {
         yield ["Mael", "DM depuis tout bébé", self::MAEL_MEM_1];
-        yield ["Aymeric", "Nouveau fan !", self::AYMERIC_MEM_1];
-        
+        yield ["Jade", "ERZA AAAHHHHH", self::JADE_MEM_1];
+        yield ["Aymeric", "Nouveau fan !", self::AYMERIC_MEM_1];  
     }
     
     public function load(ObjectManager $manager)

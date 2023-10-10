@@ -25,6 +25,16 @@ class LibrairieCrudController extends AbstractCrudController
             TextField::new('Nom'),
             AssociationField::new('member'),
             AssociationField::new('livre')
+            ->onlyOnDetail()
+            ->setTemplatePath('admin/fields/librairies_livres.html.twig')
         ];
+    }
+    
+    public function configureActions(Actions $actions): Actions
+    {
+        
+        return $actions
+        ->add(Crud::PAGE_INDEX, Action::DETAIL)
+        ;
     }
 }

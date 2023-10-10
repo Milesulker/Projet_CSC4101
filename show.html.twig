@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Détails de la librairie :</h2>
+    {% dump librairie %}
+
+    <table class="table">
+        <tbody>
+          	  <ul>
+              <li>
+                  Id : {{ librairie.id }}
+              </li>
+              <li>
+                Nom : {{ librairie.getNom() }}
+              </li>
+              <li>
+                Membre : {{ librairie.getMember() }}
+              </li>
+              </ul>
+              <tr>
+                  <th>Livres</th>
+                  <td>
+                  <ul>
+                  {%  for livre in librairie.livre %}
+                  <li>
+                  <a href="{{ path('app_livre', {'id': livre.id}) }}">{{ livre }}</a>
+                  </li>
+                  {% endfor %}
+                  </ul> 
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+	  <p><a href="{{ path('app_librairie') }}">back to list</a></p>
+{% endblock %}
