@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Librairie;
 use App\Entity\Livre;
 use App\Entity\Member;
+use App\Entity\Galerie;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -32,5 +33,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoCrud('Les Livres', 'fas fa-list', Livre::class);
         yield MenuItem::linkToCrud('Les Librairies', 'fas fa-list', Librairie::class);
         yield MenuItem::linkToCrud('Les Membres', 'fas fa-list', Member::class);
+        yield MenuItem::linkToCrud('Les Galeries', 'fas fa-list', Galerie::class);
     }
 }

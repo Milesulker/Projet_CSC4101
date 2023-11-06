@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Galerie{% endblock %}
+
+{% block body %}
+    <h1>Modifier la galerie</h1>
+
+    {{ include('galerie/_form.html.twig', {'button_label': 'Modifier'}) }}
+	<br>
+    <a href="{{ path('app_galerie_show', {'id': galerie.id}) }}">Retour à la galerie</a>
+    <br>
+{% endblock %}

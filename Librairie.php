@@ -23,7 +23,7 @@ class Librairie
 
     #[ORM\ManyToOne(inversedBy: 'Librairie')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Member $member = null;
+    private ?Membre $membre = null;
 
     public function __construct()
     {
@@ -96,14 +96,14 @@ class Librairie
         return $s;
     }
 
-    public function getMember(): ?Member
+    public function getMembre(): ?Membre
     {
-        return $this->member;
+        return $this->membre;
     }
 
-    public function setMember(?Member $member): static
+    public function setMembre(?Membre $membre): static
     {
-        $this->member = $member;
+        $this->membre = $membre;
 
         return $this;
     }

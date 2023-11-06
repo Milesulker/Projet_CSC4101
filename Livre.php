@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LivreRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LivreRepository::class)]
@@ -25,6 +27,14 @@ class Livre
     #[ORM\ManyToOne(inversedBy: 'livre')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Librairie $librairie = null;
+
+    #[ORM\ManyToMany(targetEntity: Galerie::class, mappedBy: 'Objets')]
+    private Collection $galeries;
+
+    public function __construct()
+    {
+        $this->galeries = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -84,5 +94,32 @@ class Livre
         $s = '';
         $s .= $this->getTitre();
         return $s;
+    }
+
+    /**
+     * @return Collection<int, Galerie>
+     */
+    public function getGaleries(): Collection
+    {
+        return $this->galeries;
+    }
+
+    public function addGalerie(Galerie $galery): static
+    {
+        if (!$this->galeries->contains($galery)) {
+            $this->galeries->add($galery);
+            $galery->addObjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGalerie(Galerie $galery): static
+    {
+        if ($this->galeries->removeElement($galery)) {
+            $galery->removeObjet($this);
+        }
+
+        return $this;
     }
 }

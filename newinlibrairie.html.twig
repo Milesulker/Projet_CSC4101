@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Livre{% endblock %}
+
+{% block body %}
+	<br>
+    <h2>Ajout d'un nouveau livre à {{ librairie }}</h2>
+	<br>
+    {{ include('livre/_form.html.twig') }}
+	<br>
+    <a href="{{ path('librairie_show', {'librairie_id': librairie.id}) }}">Retour à la librairie de {{ livre.librairie.getMembre }}</a>
+{% endblock %}

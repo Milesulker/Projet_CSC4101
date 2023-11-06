@@ -1,35 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h2>Détails de la librairie :</h2>
-    {% dump librairie %}
+{% block title %}Galerie{% endblock %}
 
-    <table class="table">
-        <tbody>
-          	  <ul>
-              <li>
-                  Id : {{ librairie.id }}
-              </li>
-              <li>
-                Nom : {{ librairie.getNom() }}
-              </li>
-              <li>
-                Membre : {{ librairie.getMember() }}
-              </li>
-              </ul>
-              <tr>
-                  <th>Livres</th>
-                  <td>
-                  <ul>
-                  {%  for livre in librairie.livre %}
-                  <li>
-                  <a href="{{ path('app_livre', {'id': livre.id}) }}">{{ livre }}</a>
-                  </li>
-                  {% endfor %}
-                  </ul> 
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-	  <p><a href="{{ path('app_librairie') }}">back to list</a></p>
+{% block body %}
+<br>
+<div class="container body-container">
+    <h2>Détails de la galerie</h2>
+	<br>
+	<br>
+    <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+                  <div class="form-control form-control-plaintext">
+                          {{ galerie.description }}
+                  </div>
+          </div>
+     </div>
+
+     <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Créateur</label>
+          <div class="col-sm-10">
+                  <div class="form-control form-control-plaintext">
+                          {{ galerie.Createur }}
+                  </div>
+          </div>
+     </div>
+     <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Créateur</label>
+          <div class="col-sm-10">
+                  <div class="form-control form-control-plaintext">
+                        {%  for objet in galerie.Objets %}
+                  		<li>
+                  		<a href="{{ path('app_galerie_show_livre', {'galerie_id': galerie.id, 'livre_id': objet.id}) }}">{{ objet.Titre }}</a>
+                  		</li>
+                        {% endfor %}
+                  	 	</ul> 
+                  </div>
+          </div>
+     </div>
+	<br>
+    <p><a href="{{ path('app_galerie_index') }}">Retour aux galeries</a></p>
+	<br>
+    <p><a href="{{ path('app_galerie_edit', {'id': galerie.id}) }}">Modifier</a></p>
+	<br>
+    {{ include('galerie/_delete_form.html.twig') }}
+    <br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}

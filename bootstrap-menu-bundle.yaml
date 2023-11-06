@@ -1,0 +1,16 @@
+bootstrap_menu:
+  menus:
+    main:
+      items:
+        accueil:
+          label: 'Accueil'
+          route: 'home'
+        librairies:
+          label: 'Librairies'
+          route: 'app_librairie'
+        galeries:
+          label: 'Galeries'
+          route: 'app_galerie_index'
+        membres:
+          label: 'Membres'
+          route: 'app_membre_index'

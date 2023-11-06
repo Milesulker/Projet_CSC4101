@@ -1,14 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>Livre Details :</h2>
-    {% dump livre %}
-        <ul>
-        <dl>
-     	<dt>Titre</dt><dd>{{ livre.getTitre() }}</dd>
-		<dt>Niveau</dt> <dd>{{ livre.getNiveau() }}</dd>
-        <dt>Description</dt> <dd>{{ livre.getDescription() }}</dd>
-		</dl>
-        </ul>
-        <a href="{{ path('librairie_show', {'id': livre.librairie.id}) }}">back to librairie</a>
+<br>
+<h1>Index des galeries</h1>
+<section class="py-5">
+	<div class="container px-4 px-lg-5 mt-5">
+    	<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+{% for galerie in galeries %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src='{{ asset("assets/images/#{galerie.getCreateur}.librairie.png") }}' alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ galerie.getDescription }}</h5>
+                                    <!-- Product price-->
+                                    Galerie de {{ galerie.getCreateur }}
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ path('app_galerie_show', {'id': galerie.id}) }}">Détails</a></div>
+                            </div>
+                        </div>
+                    </div>
+{% endfor %}
+		<div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src='{{ asset("assets/images/main.png") }}' alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">Nouvelle galerie</h5>
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ path('app_galerie_new') }}">Créer</a></div>
+                            </div>
+                        </div>
+                    </div>
+    	</div>
+    </div>
+</section>
 {% endblock %}
